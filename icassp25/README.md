@@ -75,11 +75,11 @@ Sample executions:
   directory `./data`. The initial learning rate is set to `1e-2`:
 
 ```sh
-acme $ icassp25/cifar100.acme.py --data data --lr 1e-2
+icassp25/cifar100.acme.py --data data --lr 1e-2
 ```
 
 - Complete training, using ACME, ADAM, ASAM and Nesterov:
 
 ```sh
-acme $ icassp25/cifar100.acme.py --data data --acme --adam --asam --nesterov
+icassp25/cifar100.acme.py --data data --acme --adam --asam --nesterov
 ```
