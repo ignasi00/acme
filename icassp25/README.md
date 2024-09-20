@@ -52,36 +52,36 @@ Some remarks about the above arguments and options:
 | `--momentum` | *Momentum* used in Exponential Memory Average for estimating the mean of the gradients. In ADAM, the mean of their uncentered variances is always estimated with a momentum equal to `0.999` |
 | `--rho` and `--eta` | Parameters of the Adaptive Sharpness Aware Minimization algorithm (ASAM) |
 | `--weight-decay` | Weight decay used in L2 regularization. In ADAM, the ADAMW implementation is used |
-| `--acme-script` | Name of the directory (module) where `acme.py` is stored. Not used in this way during our experimentation, but it does work if the script is executed from the main directory of this repository |
+| `--acme-script` | Name of the directory (module) where `acme.py` is stored. Not used in this way during our experimentation, but it does work if the script is executed from the main directory of this repository or the directory of `acme.py` is included in `$PYTHONPATH` |
 
 Other remarks:
 
 - ACME, ADAM, and ASAM may be independtly selected. If none of them is
   selected, standard SGD will be used. Also, Nesterov accelerated
   gradient descent may be applied regardless of the other options.
-- ACME is not able to perform `dropout` correctly. Work is in progress.
+- ACME is not able to perform `dropout` correctly. Work is in progress...
 - CrossEntropyLoss is always used with a smoothing that can be set with
   the `--label-smoothing` option (it defaults to `0.1`)
-- Learning rate scheduling is performed with CosineAnnealingLR, except
+- Learning rate scheduling is performed with `CosineAnnealingLR`, except
   when using ACME. In ACME, the same scheduling is performed internally
   assuming 200 epochs with batches of 200 images. With other parameters
-  of the number of epochs or the size of the batches, the results using
+  for the number of epochs or the size of the batches, the results using
   ACME are unpredictable.
 
 Sample executions:
 ------------------
 
 - Standard SGD training, assuming the databaes is already downloaded in
-  directory `.data`. The initial learning rate is set to `1e-2`:
+  directory `./data`. The initial learning rate is set to `1e-2`:
 
 ```sh
-acme $ icassp25/cifar100.acme.py --data data --lr 1e-2
+icassp25/cifar100.acme.py --data data --lr 1e-2
 ```
 
 - Complete training, using ACME, ADAM, ASAM and Nesterov:
 
 ```sh
-acme $ icassp25/cifar100.acme.py --data data --acme --adam --asam --nesterov
+icassp25/cifar100.acme.py --data data --acme --adam --asam --nesterov
 ```
 
 Acknowledgment
