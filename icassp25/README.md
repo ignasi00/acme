@@ -83,3 +83,14 @@ icassp25/cifar100.acme.py --data data --lr 1e-2
 ```sh
 icassp25/cifar100.acme.py --data data --acme --adam --asam --nesterov
 ```
+
+Acknowledgment
+--------------
+
+The script `icassp25/cifar100.acme.py` was written using
+`example/train.py` from David Samuel's repository [(Adaptive) SAM
+Optimizer](https://github.com/davda54/sam) as a model and starting
+point.
+
+Many thanks to him and his collaborators (or whoever wrote
+that script in the first instance.)
