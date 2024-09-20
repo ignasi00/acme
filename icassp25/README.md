@@ -65,7 +65,7 @@ Other remarks:
 - Learning rate scheduling is performed with `CosineAnnealingLR`, except
   when using ACME. In ACME, the same scheduling is performed internally
   assuming 200 epochs with batches of 200 images. With other parameters
-  of the number of epochs or the size of the batches, the results using
+  for the number of epochs or the size of the batches, the results using
   ACME are unpredictable.
 
 Sample executions:
